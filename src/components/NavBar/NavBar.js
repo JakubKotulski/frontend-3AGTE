@@ -4,16 +4,16 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
     return(
-        <Navbar bg="light" expand="lg">
+        <Navbar id="navbar-bootstrap" expand="lg">
             <Container>
-                <Link to="/">
-                  <li>Home</li>
+                <Link to="/" style={{textDecoration: 'none'}}>
+                  <li className="links">Home</li>
                 </Link>
-                <Link to="/login-form">
-                  <li>Login</li>
+                <Link to="/login-form" style={{textDecoration: 'none'}}>
+                  <li className="links">Login</li>
                 </Link>
-                <Link to="/sigin-form">
-                  <li className="responsive-show">Sign up</li>
+                <Link to="/sigin-form" style={{textDecoration: 'none'}}>
+                  <li className="links">Sign up</li>
                 </Link>
               {/* <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">

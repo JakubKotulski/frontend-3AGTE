@@ -1,0 +1,11 @@
+#navbar-bootstrap{
+    background-color: #212528;
+    padding: 20px 0px;
+}
+
+#navbar-bootstrap .links{
+    text-decoration: none;
+    color: #FFC745;
+    display: block;
+}
+
