@@ -1,5 +1,7 @@
 .mp-container{
     background-color: #007A78;
+    flex-direction: column;
+    align-items: center;
 }
 
 .container-fluid{
