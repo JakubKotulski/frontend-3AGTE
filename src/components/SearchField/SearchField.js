@@ -10,15 +10,14 @@ const SearchField = ({ products }) => {
 
     const compare = () => {
         setResultPositive([]);
-        products.forEach(element => {
-            if(element.name == name){
-                setResultPositive(element);
-            }
-            
-        });
+        const result = products.find(element => element.name == name);
+        if(result) {
+            setResultPositive(result);
+            setResultNegative("");
+        } else {
+            setResultNegative("Sorry, we don't…");
+        }       
     }
-
-    console.log(resultPositive)
 
     const getName = (event) => {
         setName(event.target.value);
@@ -27,7 +26,7 @@ const SearchField = ({ products }) => {
     return(
         <Container className="search-container">
             <input className="search-field" placeholder="search..." onChange={getName}/>
-            <Button onClick={compare}>Search</Button>
+            <Button onClick={() => compare()}>Search</Button>
         </Container>
     )
 }
