@@ -1,12 +1,20 @@
-import { Container, Button } from "react-bootstrap"
-import "./SearchField.css"
-import { useState, useEffect } from "react";
+import { Container, Button } from "react-bootstrap";
+import { useState } from "react";
+import "./SearchField.css";
+import ModalCard from "../ModalCard/ModalCard";
+
 
 const SearchField = ({ products }) => {
 
     const [name, setName] = useState("");
     const [resultPositive, setResultPositive] = useState([]);
     const [resultNegative, setResultNegative] = useState("");
+
+    const [modalStatus, setModalStatus] = useState(false);
+
+    const onHide = () => {
+        setModalStatus(false);
+      };
 
     const compare = () => {
         setResultPositive([]);
@@ -26,7 +34,12 @@ const SearchField = ({ products }) => {
     return(
         <Container className="search-container">
             <input className="search-field" placeholder="search..." onChange={getName}/>
-            <Button onClick={() => compare()}>Search</Button>
+            <Button 
+            onClick={() => {
+                compare();
+                setModalStatus(true);
+            }}>Search</Button>
+            {modalStatus && <ModalCard onHide={onHide} showModal={modalStatus} product={resultPositive}/>}
         </Container>
     )
 }

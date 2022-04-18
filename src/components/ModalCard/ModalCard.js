@@ -1,7 +1,18 @@
 import "./ModalCard.css"
 import { Modal, Button } from "react-bootstrap";
+import { useState } from "react";
+import pobrane from "../../pobrane.png"
+
+
 
 const ModalCard = ({ showModal, product, onHide }) => {
+
+    if(Object.entries(product) == 0){
+        product = { name: "we don't have what you are looking for ",
+                    price: "-",
+                    url: pobrane }
+    }
+
     return(
         <Modal show={showModal} onHide={onHide} keyboard={false} backdrop="static">
             <Modal.Header closeButton>
@@ -10,9 +21,9 @@ const ModalCard = ({ showModal, product, onHide }) => {
 
             <Modal.Body>
                 <div className="modal-body">
-                <img src={product.url} alt="card"></img>
+                <img src={product.url} alt="brak produktu"></img>
                 <div className="modal-description">
-                    <p className="modal-paragraf"><b>Price:</b> {product.price} pln</p>
+                    <p className="modal-paragraf"><b>Price:</b> {product.price}</p>
                 </div>
                 </div>
             </Modal.Body>

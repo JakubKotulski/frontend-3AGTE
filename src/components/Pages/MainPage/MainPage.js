@@ -21,11 +21,6 @@ const MainPage = () => {
     
 
     return(
-        // <>
-        //     <h1>MainPage</h1>
-        //     <SearchField />
-        // </>
-
         <Container fluid className="mp-container">
             <Row className="row-customized">
                 <Col>
