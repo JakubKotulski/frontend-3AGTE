@@ -1,6 +1,5 @@
 import "./ModalCard.css"
 import { Modal, Button } from "react-bootstrap";
-import { useState } from "react";
 import pobrane from "../../pobrane.png"
 
 
@@ -21,10 +20,10 @@ const ModalCard = ({ showModal, product, onHide }) => {
 
             <Modal.Body>
                 <div className="modal-body">
-                <img src={product.url} alt="brak produktu"></img>
-                <div className="modal-description">
-                    <p className="modal-paragraf"><b>Price:</b> {product.price}</p>
-                </div>
+                    <img src={product.url} alt="brak produktu"></img>
+                    <div className="modal-description">
+                        <p className="modal-paragraf"><b>Price:</b> {product.price}</p>
+                    </div>
                 </div>
             </Modal.Body>
 

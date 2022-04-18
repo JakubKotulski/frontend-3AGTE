@@ -19,7 +19,7 @@ const MainPage = () => {
     }
 
     
-
+    
     return(
         <Container fluid className="mp-container">
             <Row className="row-customized">

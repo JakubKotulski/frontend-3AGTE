@@ -11,7 +11,7 @@ const Galery = ({ products }) => {
     const onHide = () => {
         setModalStatus(false);
       };
-
+      
     return(
         <Container className="galery">
             {products.map((product) => (
