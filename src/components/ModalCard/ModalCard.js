@@ -1,4 +1,5 @@
 import "./ModalCard.css"
+import { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import pobrane from "../../pobrane.png"
 
@@ -11,6 +12,19 @@ const ModalCard = ({ showModal, product, onHide }) => {
                     price: "-",
                     url: pobrane }
     }
+
+    if(localStorage.getItem("array") === null){
+        localStorage.setItem("array", []);
+    }
+
+    const addToBasket = (item) => {
+        const storageItem = localStorage.getItem("array");
+        const newStorage = [...JSON.parse(storageItem), item];
+        localStorage.setItem("array", JSON.stringify(newStorage));
+        const check = localStorage.getItem("array")
+        console.log(JSON.parse(check));
+    }
+
 
     return(
         <Modal show={showModal} onHide={onHide} keyboard={false} backdrop="static">
@@ -29,7 +43,13 @@ const ModalCard = ({ showModal, product, onHide }) => {
 
             <Modal.Footer className="modal-footer-flex">
                 <Button variant="secondary" onClick={onHide}>
-                Close
+                    Close
+                </Button>
+                <Button variant="success" onClick={() => {
+                    addToBasket(product);
+                    onHide()
+                }}>
+                    Buy
                 </Button>
             </Modal.Footer>
         </Modal>

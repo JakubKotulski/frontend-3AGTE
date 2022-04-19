@@ -8,7 +8,6 @@ const SearchField = ({ products }) => {
 
     const [name, setName] = useState("");
     const [resultPositive, setResultPositive] = useState([]);
-    const [resultNegative, setResultNegative] = useState("");
 
     const [modalStatus, setModalStatus] = useState(false);
 
@@ -18,13 +17,10 @@ const SearchField = ({ products }) => {
 
     const compare = () => {
         setResultPositive([]);
-        const result = products.find(element => element.name == name);
+        const result = products.find(element => element.name === name);
         if(result) {
             setResultPositive(result);
-            setResultNegative("");
-        } else {
-            setResultNegative("Sorry, we don't…");
-        }       
+        }      
     }
 
     const getName = (event) => {

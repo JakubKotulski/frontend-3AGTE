@@ -9,3 +9,7 @@
     display: block;
 }
 
+#navbar-bootstrap .icons{
+    height: 20px;
+    color: #FFC745;
+}
