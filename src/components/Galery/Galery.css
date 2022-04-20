@@ -1,0 +1,21 @@
+.galery{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-container{
+    width: 25%;
+    padding: 5px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-img{
+    width: 100%;
+}
+
+.product-name{
+    text-align: center;
+}

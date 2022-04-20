@@ -1,0 +1,38 @@
+.modal-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-body img {
+    height: 300px;
+  }
+  
+  .modal-description {
+    margin-left: 20px;
+  }
+  
+  .modal-content .modal-footer-flex {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .modal-paragraf {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  @media only screen and (max-width: 576px) {
+    .modal-body {
+      flex-direction: column;
+    }
+  
+    .modal-body img {
+      height: 400px;
+    }
+    .modal-description {
+      margin-left: 0;
+      margin-top: 20px;
+    }
+  }
