@@ -26,7 +26,9 @@ const NavBar = () => {
               <Navbar.Collapse id="basic-navbar-nav">
                 
               </Navbar.Collapse> */}
-              <FontAwesomeIcon className ="icons" icon = {faBasketShopping}/>
+              <Link to="/finish-shopping">
+                <FontAwesomeIcon className ="icons" icon = {faBasketShopping}/>
+              </Link>
             </Container>
             
           </Navbar>
