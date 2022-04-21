@@ -2,32 +2,28 @@ import { useState, useEffect } from "react"
 import { Table, Button } from "react-bootstrap";
 import "./CheckList.css"
 
-const CheckList = ({ list }) => {
+const CheckList = ({ list, removeFunction }) => {
 
-    const [arrayProducts, setArrayProducts] = useState([]);
-   
-    console.log(list)
-    console.log(arrayProducts)
-
+    
     return(
-        <Table striped bordered hover>
+        <Table id = "check-table" striped bordered hover variant="dark">
             <thead>
                 <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Delete an item</th>
+                    <th className="td">#</th>
+                    <th className="td">Name</th>
+                    <th className="td">Product</th>
+                    <th className="td">Price</th>
+                    <th className="td">Delete an item</th>
                 </tr>
             </thead>
             <tbody>
                 {list.map((item, index) => (
                     <tr key= {index}>
-                        <td >{index + 1}</td>
-                        <td>{item.name}</td>
-                        <td> <img className="check-list-img" src = {item.url}></img> </td>
-                        <td>{item.price}</td>
-                        <td>  <Button variant="danger">Danger</Button> </td>
+                        <td className="td" >{index + 1}</td>
+                        <td className="td">{item.name}</td>
+                        <td className="td"> <img className="check-list-img" src = {item.url}></img> </td>
+                        <td className="td">{item.price}</td>
+                        <td className="td">  <Button onClick={ () => {removeFunction(index)}} variant="danger">Remove from the list</Button> </td>
                     </tr>
                 ))}
                 {/* <tr>

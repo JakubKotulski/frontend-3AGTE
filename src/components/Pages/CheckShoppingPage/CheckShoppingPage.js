@@ -15,7 +15,9 @@ const CheckShoppingPage = () => {
         setList(JSON.parse(localStorage.getItem("array")));
     }
 
-    console.log(list);
+    const removeItem = (i) => {
+        setList(list.filter((item, index) => index !== i))
+    }
 
     return(
      <Container>
@@ -23,7 +25,7 @@ const CheckShoppingPage = () => {
             <h3>Check your list before you finalise the transaction</h3>     
         </div>
         <div>
-            <CheckList list = { list }/>
+            <CheckList list = { list } removeFunction = {removeItem}/>
         </div>
 
      </Container>
