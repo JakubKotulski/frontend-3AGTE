@@ -19,7 +19,14 @@ const ModalCard = ({ showModal, product, onHide }) => {
 
     const addToBasket = (item) => {
         const storageItem = localStorage.getItem("array");
-        const newStorage = [...JSON.parse(storageItem), item];
+        let newStorage = [];
+        if(storageItem == []){
+            newStorage = [...storageItem, item];
+        }else{
+            newStorage = [...JSON.parse(storageItem), item];
+        }
+        // const newStorage = [...JSON.parse(storageItem), item];
+        console.log(newStorage, " newStorage")
         localStorage.setItem("array", JSON.stringify(newStorage));
         const check = localStorage.getItem("array")
         console.log(JSON.parse(check));

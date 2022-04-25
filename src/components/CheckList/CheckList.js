@@ -1,9 +1,7 @@
-import { useState, useEffect } from "react"
 import { Table, Button } from "react-bootstrap";
 import "./CheckList.css"
 
-const CheckList = ({ list, removeFunction }) => {
-
+const CheckList = ({ list, removeFunction, fetch }) => {
     
     return(
         <Table id = "check-table" striped bordered hover variant="dark">
@@ -23,26 +21,9 @@ const CheckList = ({ list, removeFunction }) => {
                         <td className="td">{item.name}</td>
                         <td className="td"> <img className="check-list-img" src = {item.url}></img> </td>
                         <td className="td">{item.price}</td>
-                        <td className="td">  <Button onClick={ () => {removeFunction(index)}} variant="danger">Remove from the list</Button> </td>
+                        <td className="td">  <Button onClick={ () => {removeFunction(index); fetch()}} variant="danger">Remove from the list</Button> </td>
                     </tr>
                 ))}
-                {/* <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                </tr>
-                <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                </tr>
-                <tr>
-                <td>3</td>
-                <td colSpan={2}>Larry the Bird</td>
-                <td>@twitter</td>
-                </tr> */}
             </tbody>
         </Table>
     )
