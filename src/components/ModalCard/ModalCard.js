@@ -1,5 +1,4 @@
 import "./ModalCard.css"
-import { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import pobrane from "../../pobrane.png"
 
@@ -7,7 +6,7 @@ import pobrane from "../../pobrane.png"
 
 const ModalCard = ({ showModal, product, onHide }) => {
 
-    if(Object.entries(product) == 0){
+    if(Object.entries(product) === 0){
         product = { name: "we don't have what you are looking for ",
                     price: "-",
                     url: pobrane }

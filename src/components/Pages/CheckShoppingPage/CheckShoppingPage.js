@@ -30,6 +30,7 @@ const CheckShoppingPage = () => {
     const removeItem = (i) => {
         if(list.length === 1){
             localStorage.clear();
+            navigate("/");
         }else{
             list.splice(i, 1);
             setList(list);

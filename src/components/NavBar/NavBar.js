@@ -6,10 +6,6 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
 
-  const buyingList = () => {
-    
-  }
-
     return(
         <Navbar id="navbar-bootstrap" expand="lg">
             <Container>
