@@ -1,0 +1,9 @@
+#history-table .td{
+    text-align: center;
+    vertical-align: middle;
+}
+
+#history-table .li-padding{
+    padding-left: 35%;
+    text-align: left;
+}
