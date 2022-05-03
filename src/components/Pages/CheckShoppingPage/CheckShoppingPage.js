@@ -4,6 +4,7 @@ import AcceptTransactionPanel from "../../AcceptTransactionPanel/AcceptTransacti
 import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const CheckShoppingPage = () => {
 
@@ -38,12 +39,36 @@ const CheckShoppingPage = () => {
     }
 
     const acceptTransaction = () => {
+        let price = 0;
+        for(let i = 0; i < list.length; i++){
+            price = price + list[i].price
+        }
+
+        const date = new Date().toLocaleDateString();
+
+        if(localStorage.getItem("user")){
+            axios({
+                method: "POST",
+                data: {
+                    items: list,
+                    price: price,
+                    date: date
+                },
+                withCredentials: true,
+                url: "http://localhost:4000/history",
+            }).then((res) => {
+                console.log(res)
+            })
+        }else{
+            console.log("kupione");
+        }
         setList([]);
+        localStorage.removeItem("array");
     }
 
     const declineTransaction = () => {
         setList([]);
-        localStorage.clear();
+        localStorage.removeItem("array");
     }
 
     return(
