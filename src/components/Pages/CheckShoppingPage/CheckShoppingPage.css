@@ -1,0 +1,11 @@
+#header-check-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#bad-alert{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
