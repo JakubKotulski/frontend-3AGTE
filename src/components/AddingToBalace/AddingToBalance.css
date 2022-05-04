@@ -1,0 +1,9 @@
+.balance-alerts{
+    width: 33%;
+}
+
+.description-box-for-balance{
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+}

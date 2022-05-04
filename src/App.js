@@ -5,7 +5,6 @@ import MainPage from './components/Pages/MainPage/MainPage';
 import NavBar from './components/NavBar/NavBar';
 import AccountPage from './components/Pages/AccountPage/AccountPage';
 import CheckShoppingPage from './components/Pages/CheckShoppingPage/CheckShoppingPage';
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 

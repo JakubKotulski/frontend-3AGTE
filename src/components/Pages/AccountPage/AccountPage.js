@@ -5,12 +5,13 @@ import "./AccountPage.css";
 import { Container, Col, Row } from "react-bootstrap";
 import HistoryOfPurchases from "../../HistoryOfPurchases/HistoryOfPurchases";
 import AccountBalance from "../../AccountBalance/AccountBalance";
+import AddingToBalance from "../../AddingToBalace/AddingToBalance";
 
 const AccountPage = () => {
 
     const navigate = useNavigate()
     const [history, setHistory] = useState([]);
-    const [balance, setBalance] = useState(0)
+    const [balance, setBalance] = useState(0);
 
     const getUSser = useCallback(() => {
         axios({
@@ -44,6 +45,20 @@ const AccountPage = () => {
         })
     }, []);
 
+    const updateBalance = (cash) => {
+        console.log(parseInt(cash))
+        axios({
+          method: "PUT",
+          data: {
+            balance: balance + parseInt(cash),
+          },
+          withCredentials: true,
+          url: "http://localhost:4000/balance-update",
+        }).then((res) => {
+          setBalance(res.data);
+        });
+      };
+
     useEffect(() => {
         getUSser();
     }, [getUSser]);
@@ -59,17 +74,25 @@ const AccountPage = () => {
     return(
         <div> 
             <Container fluid className="mp-container">
+            <Row>
+                <Col>
+                    <AddingToBalance />
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <AccountBalance putBalance = {updateBalance} balance = {balance}/>
+                    
+                </Col>
+            </Row>
+            
             <Row className="row-customized">
                 <Col>
                     <h3>History of your transactions</h3>
                     <HistoryOfPurchases list = {history}/>
                 </Col>
             </Row>
-            <Row>
-                <Col>
-                    <AccountBalance balance = {balance}/>
-                </Col>
-            </Row>
+            
             </Container>
         </div>
     )
