@@ -1,0 +1,22 @@
+.circle-balance{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 400px;
+    width: 400px;
+    border-radius: 50%;
+    padding: 20px;
+    border: solid 20px #FFC745;
+}
+
+.wallet-icon{
+    color: #FFC745;
+    height: 60px;
+    padding: 15px 0px;
+}
+
+.balance-description{
+    color: #FFC745;
+    font-size: 20px;
+}

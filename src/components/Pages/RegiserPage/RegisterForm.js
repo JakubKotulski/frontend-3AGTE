@@ -32,7 +32,16 @@ const RegisterForm = () => {
             withCredentials: true,
             url: "http://localhost:4000/user",
         }).then((res) => {
-            console.log(res);
+            if(res.data.err === undefined){
+                axios({
+                    method: "POST",
+                    data:{
+                        id: res.data._id,
+                    },
+                    withCredentials: true,
+                    url: "http://localhost:4000/balance",
+                })
+            }
         })
     }
 

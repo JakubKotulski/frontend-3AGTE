@@ -4,11 +4,13 @@ import { useNavigate } from "react-router-dom";
 import "./AccountPage.css";
 import { Container, Col, Row } from "react-bootstrap";
 import HistoryOfPurchases from "../../HistoryOfPurchases/HistoryOfPurchases";
+import AccountBalance from "../../AccountBalance/AccountBalance";
 
 const AccountPage = () => {
 
     const navigate = useNavigate()
     const [history, setHistory] = useState([]);
+    const [balance, setBalance] = useState(0)
 
     const getUSser = useCallback(() => {
         axios({
@@ -32,6 +34,16 @@ const AccountPage = () => {
           });
     }, [])
 
+    const getBalance = useCallback(() => {
+        axios({
+            method: "GET",
+            withCredentials: true,
+            url: "http://localhost:4000/get-balance",
+        }).then((res) => {
+            setBalance(res.data[0].money);
+        })
+    }, []);
+
     useEffect(() => {
         getUSser();
     }, [getUSser]);
@@ -40,7 +52,9 @@ const AccountPage = () => {
         fetchHistory();
     }, [fetchHistory]);
 
-    console.log(history)
+    useEffect(() => {
+        getBalance();
+    }, [getBalance]);
 
     return(
         <div> 
@@ -53,7 +67,7 @@ const AccountPage = () => {
             </Row>
             <Row>
                 <Col>
-                    
+                    <AccountBalance balance = {balance}/>
                 </Col>
             </Row>
             </Container>
