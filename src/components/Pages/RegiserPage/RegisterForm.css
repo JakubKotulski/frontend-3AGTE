@@ -5,6 +5,8 @@
     align-items: center;
     justify-content: center;
     background-color: #007A78;
+    flex-direction: column;
+    
 }
 
 .register-form .button-color{
@@ -14,4 +16,6 @@
 
 .register-form .form{
     width: 35%;
+    text-align: center;
+    padding: 20px 0;
 }

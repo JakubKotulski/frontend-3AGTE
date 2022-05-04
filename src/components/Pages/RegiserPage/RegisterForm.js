@@ -1,16 +1,15 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Alert } from "react-bootstrap";
 import "./RegisterForm.css"
 
 const RegisterForm = () => {
 
-    const colorsForBootstrap = {
-        button: "#007A78"
-    }
     const [signinUsername, setSigninUsername] = useState("");
     const [signinPassword, setSigninPassword] = useState("");
+    const [showSuccess, setShowSuccess] = useState(false);
+    const [showSetback, setShowSetback] = useState(false);
 
     const getUsername = (event) => {
         setSigninUsername(event.target.value);
@@ -32,6 +31,7 @@ const RegisterForm = () => {
             withCredentials: true,
             url: "http://localhost:4000/user",
         }).then((res) => {
+            
             if(res.data.err === undefined){
                 axios({
                     method: "POST",
@@ -41,6 +41,9 @@ const RegisterForm = () => {
                     withCredentials: true,
                     url: "http://localhost:4000/balance",
                 })
+                setShowSuccess(true);
+            }else{
+                setShowSetback(true);
             }
         })
     }
@@ -62,6 +65,16 @@ const RegisterForm = () => {
                         Submit
                     </Button>
                 </Form>
+                {showSuccess && 
+                <Alert className = "bad-alert" variant = "success">
+                    <p>Your account have been created!</p>
+                    <Button variant = "success" onClick = {() => setShowSuccess(false)}>Close</Button>
+                </Alert>}  
+                {showSetback && 
+                <Alert className = "bad-alert" variant = "warning">
+                    <p>Account with that username already exist, try something else!</p>
+                    <Button variant = "warning" onClick = {() => setShowSetback(false)}>Close</Button>
+                </Alert>}  
             </>
         </div>
     )

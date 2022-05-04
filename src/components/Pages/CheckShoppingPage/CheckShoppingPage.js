@@ -108,7 +108,7 @@ const CheckShoppingPage = () => {
          <div id = "header-check-list">
             <h3>Check your list before you finalise the transaction</h3>   
             {show && 
-                <Alert id = "bad-alert" variant = "danger">
+                <Alert className = "bad-alert" variant = "danger">
                     <p>You don't have enough means in your wallet, just top it up or use traditional bank transfer</p>
                     <Button variant = "light" onClick = {() => setShow(false)}>Close</Button>
                 </Alert>}  
