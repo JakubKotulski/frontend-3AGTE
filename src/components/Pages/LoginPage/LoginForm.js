@@ -1,14 +1,13 @@
 import React from "react";
 import "./LoginForm.css"
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
-import { History } from "history";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Button, Form } from "react-bootstrap";
 
 const LoginForm = () => {
 
-    // const history = useHistory();
+    const navigate = useNavigate();
 
     const [loginUsername, setLoginUsername] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
@@ -31,12 +30,11 @@ const LoginForm = () => {
             withCredentials: true,
             url: "http://localhost:4000/users/login",
         }).then((res) => {
-            // if(res.data._id){
-            //     localStorage.setItem("user", JSON.stringify(res.data));
-            //     history.pushState("/user-panel");
-            //     window.location.reload;
-            // }
-            console.log(res);
+            if(res.data._id){
+                localStorage.setItem("user", JSON.stringify(res.data))
+                navigate("/account")
+                window.location.reload();
+            }
         })
     }
 
@@ -46,7 +44,7 @@ const LoginForm = () => {
                 <Form className="form">
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" onChange={getUsername} />
+                        <Form.Control type="email" placeholder="Enter username" onChange={getUsername} />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
