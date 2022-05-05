@@ -3,7 +3,7 @@ import "./LoginForm.css"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Alert } from "react-bootstrap";
 
 const LoginForm = () => {
 
@@ -11,6 +11,8 @@ const LoginForm = () => {
 
     const [loginUsername, setLoginUsername] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
+    const [message, setMessage] = useState("");
+    const [show, setShow] = useState(false);
 
     const getUsername = (event) => {
         setLoginUsername(event.target.value);
@@ -34,6 +36,9 @@ const LoginForm = () => {
                 localStorage.setItem("user", JSON.stringify(res.data))
                 navigate("/account")
                 window.location.reload();
+            }else{
+                setMessage(res.data);
+                setShow(true);
             }
         })
     }
@@ -55,6 +60,11 @@ const LoginForm = () => {
                         Submit
                     </Button>
                 </Form>
+                {show && 
+                <Alert className = "bad-alert alert-login" variant = "warning">
+                    <p>{message}!</p>
+                    <Button variant = "warning" onClick = {() => setShow(false)}>Close</Button>
+                </Alert>}  
             </>
         </div>
     )

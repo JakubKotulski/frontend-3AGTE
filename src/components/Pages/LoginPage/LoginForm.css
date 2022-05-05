@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: center;
     background-color: #007A78;
+    flex-direction: column;
 }
 
 .login-form .button-color{
@@ -15,4 +16,9 @@
 .login-form .form{
     width: 35%;
     text-align: center;
+    padding: 20px 0;
+}
+
+.login-form .alert-login{
+    padding: 10px 100px;
 }

@@ -4,8 +4,12 @@
 }
 
 .search-container .search-field{
-    width: 75%;
+    width: 60%;
     padding: 10px 0px;
     border-radius: 11px;
     border: none;
+}
+
+.search-container .button-search{
+    margin-left: 20px;
 }

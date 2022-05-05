@@ -17,7 +17,7 @@ const SearchField = ({ products }) => {
 
     const compare = () => {
         setResultPositive([]);
-        const result = products.find(element => element.name === name);
+        const result = products.find(element => element.name.toLowerCase() === name.toLowerCase());
         if(result) {
             setResultPositive(result);
         }      
@@ -30,7 +30,7 @@ const SearchField = ({ products }) => {
     return(
         <Container className="search-container">
             <input className="search-field" placeholder="search..." onChange={getName}/>
-            <Button 
+            <Button className="button-search" variant = "dark"
             onClick={() => {
                 compare();
                 setModalStatus(true);
