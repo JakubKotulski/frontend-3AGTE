@@ -5,6 +5,7 @@ import { Navbar, Container } from "react-bootstrap"
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useEffect, useState } from "react";
 
 const NavBar = () => {
 
@@ -35,9 +36,9 @@ const NavBar = () => {
                   <Link to = "/account" style={{textDecoration: 'none'}}>
                     <li className="links">{user.username}</li>
                   </Link>
-                <Link to="/finish-shopping">
-                  <FontAwesomeIcon className ="icons" icon = {faBasketShopping}/>
-                </Link>
+                  <Link to="/finish-shopping">
+                    <FontAwesomeIcon className ="icons" icon = {faBasketShopping}/>
+                  </Link>
               </Container>
                 
             </Navbar>
@@ -59,9 +60,10 @@ const NavBar = () => {
                   <Navbar.Collapse id="basic-navbar-nav">
                     
                   </Navbar.Collapse> */}
-                <Link to="/finish-shopping">
-                  <FontAwesomeIcon className ="icons" icon = {faBasketShopping}/>
-                </Link>
+
+                  <Link to="/finish-shopping">
+                    <FontAwesomeIcon className ="icons" icon = {faBasketShopping}/>
+                  </Link>
               </Container>
                 
             </Navbar>

@@ -25,11 +25,7 @@ const ModalCard = ({ showModal, product, onHide }) => {
         }else{
             newStorage = [...JSON.parse(storageItem), item];
         }
-        // const newStorage = [...JSON.parse(storageItem), item];
-        console.log(newStorage, " newStorage")
         localStorage.setItem("array", JSON.stringify(newStorage));
-        const check = localStorage.getItem("array")
-        console.log(JSON.parse(check));
     }
 
 
@@ -52,12 +48,13 @@ const ModalCard = ({ showModal, product, onHide }) => {
                 <Button variant="secondary" onClick={onHide}>
                     Close
                 </Button>
+                {product.url == pobrane ? null : 
                 <Button variant="success" onClick={() => {
                     addToBasket(product);
                     onHide()
                 }}>
                     Buy
-                </Button>
+                </Button>}
             </Modal.Footer>
         </Modal>
     )

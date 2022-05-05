@@ -14,24 +14,22 @@ const CheckShoppingPage = () => {
     const [list, setList] = useState([]);
     const [balance, setBalance] = useState(0);
     const [show, setShow] = useState(false);
+    const [user, setUser] = useState(true);
 
-    const getBalance = useCallback(() => {
-        axios({
-            method: "GET",
-            withCredentials: true,
-            url: "http://localhost:4000/get-balance",
-        }).then((res) => {
-            setBalance(res.data[0].money);
-        })
-    }, []);
-
-    if(localStorage.getItem("array") === null){
-        navigate("/");
-        window.location.reload(true);
-    }
+    // if(localStorage.getItem("array") === null){
+    //     navigate("/");
+    //     window.location.reload(true);
+    // }
 
     const getItemsFromStorage = () => {
-        setList(JSON.parse(localStorage.getItem("array")));
+        if(localStorage.getItem("array") === null || localStorage.getItem("array").length == 0){
+            localStorage.removeItem("array");
+            navigate("/");
+            window.location.reload(true);
+        }else{
+            setList(JSON.parse(localStorage.getItem("array")));
+        }
+        
     }
 
     const removeItem = (i) => {
@@ -44,6 +42,25 @@ const CheckShoppingPage = () => {
         }
     }
 
+    const getUser = useCallback(() => {
+        axios({
+            method: "GET",
+            withCredentials: true,
+            url: "http://localhost:4000/user/me"
+        }).then((res) => {
+            if(res.data.username !== undefined){
+                setUser(false);
+                axios({
+                    method: "GET",
+                    withCredentials: true,
+                    url: "http://localhost:4000/get-balance",
+                }).then((res) => {
+                    setBalance(res.data[0].money);
+                })
+            }
+        })
+    }, []);
+
     const acceptTransaction = () => {
         let price = 0;
         for(let i = 0; i < list.length; i++){
@@ -52,7 +69,7 @@ const CheckShoppingPage = () => {
 
         const date = new Date().toLocaleDateString();
 
-        if(localStorage.getItem("user")){
+        if(!user){
             if(price <= balance){
                 axios({
                     method: "POST",
@@ -71,7 +88,7 @@ const CheckShoppingPage = () => {
                         },
                         withCredentials: true,
                         url: "http://localhost:4000/balance-update",
-                    })
+                    });
                     console.log(res)
                     setList([]);
                     localStorage.removeItem("array");
@@ -100,8 +117,9 @@ const CheckShoppingPage = () => {
     }, [])
 
     useEffect(() => {
-        getBalance();
-    }, [])
+        getUser();
+    }, []);
+
 
     return(
      <Container>
