@@ -45,27 +45,27 @@ const NavBar = () => {
           </>
         ) : (
           <>
-            <Navbar id="navbar-bootstrap" expand="lg">
-              <Container>
-                  <Link to="/" style={{textDecoration: 'none'}}>
-                    <li className="links">Home</li>
-                  </Link>
-                  <Link to="/login-form" style={{textDecoration: 'none'}}>
-                    <li className="links">Login</li>
-                  </Link>
-                  <Link to="/sigin-form" style={{textDecoration: 'none'}}>
-                    <li className="links">Sign up</li>
-                  </Link>
-                  {/* <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar variant="dark" id="navbar-bootstrap" expand="lg">
+              <Navbar.Brand  className="links" href="#">MENU</Navbar.Brand>
+              <Navbar.Toggle aria-controls="basic-navbar-nav" />
                   <Navbar.Collapse id="basic-navbar-nav">
-                    
-                  </Navbar.Collapse> */}
+                    <Container>
+                      <Link to="/" style={{textDecoration: 'none'}}>
+                        <li className="links">Home</li>
+                      </Link>
+                      <Link to="/login-form" style={{textDecoration: 'none'}}>
+                        <li className="links">Login</li>
+                      </Link>
+                      <Link to="/sigin-form" style={{textDecoration: 'none'}}>
+                        <li className="links">Sign up</li>
+                      </Link>
+                      
 
-                  <Link to="/finish-shopping">
-                    <FontAwesomeIcon className ="icons" icon = {faBasketShopping}/>
-                  </Link>
-              </Container>
-                
+                      <Link to="/finish-shopping">
+                        <FontAwesomeIcon className ="icons" icon = {faBasketShopping}/>
+                      </Link>
+                    </Container>
+                  </Navbar.Collapse>     
             </Navbar>
           </>
         )}

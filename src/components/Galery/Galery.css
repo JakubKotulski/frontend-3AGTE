@@ -23,3 +23,13 @@
     color: #FFC745;
     font-weight: 500;
 }
+
+@media only screen and (max-width: 600px) {
+    .galery{
+        justify-content: center;
+    }
+
+    .product-container{
+        width: 40%;
+    }
+}

@@ -13,3 +13,20 @@
 .search-container .button-search{
     margin-left: 20px;
 }
+
+@media only screen and (max-width: 600px) {
+    .search-container{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-container .button-search{
+        margin-top: 10px;
+        margin-left: 0px;
+    }
+
+    .search-container .search-field{
+        width: 100%;
+        margin: 10px 0;
+    }
+}

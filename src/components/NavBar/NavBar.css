@@ -7,9 +7,36 @@
     text-decoration: none;
     color: #FFC745;
     display: block;
+    margin: 0;
 }
 
 #navbar-bootstrap .icons{
     height: 20px;
     color: #FFC745;
+}
+
+@media only screen and (max-width: 600px) {
+    #navbar-bootstrap{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #navbar-bootstrap .links{
+        padding: 15px 0;
+        letter-spacing: 2px;
+    }
+
+    #navbar-bootstrap .icons{
+        padding: 10px 0;
+    }
+
+    .navbar-toggler .navbar-toggler-icon{
+        color: #FFC745;
+    }
+
+    #basic-navbar-nav{
+        text-align: center;
+    }
 }
