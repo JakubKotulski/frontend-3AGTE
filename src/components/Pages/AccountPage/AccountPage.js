@@ -86,7 +86,7 @@ const AccountPage = () => {
                 </Col>
             </Row>
             
-            <Row className="row-customized">
+            <Row className="row-customized account-history-header">
                 <Col>
                     <h3>History of your transactions</h3>
                     <HistoryOfPurchases list = {history}/>

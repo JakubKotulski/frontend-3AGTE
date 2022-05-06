@@ -9,7 +9,7 @@ const historyOfPurchases = ({list}) => {
                     <th className="td">#</th>
                     <th className="td">Date</th>
                     <th className="td">Price</th>
-                    <th className="td">Details</th>
+                    <th className="td mobile-none">Details</th>
                 </tr>
             </thead>
             <tbody>
@@ -18,7 +18,7 @@ const historyOfPurchases = ({list}) => {
                         <td className="td" >{index + 1}</td>
                         <td className="td">{item.date}</td>
                         <td className="td">{item.price}</td>
-                        <td className="td">{item.items.map((element) => (
+                        <td className="td mobile-none">{item.items.map((element) => (
                             <li className="li-padding" key={element._id}>{element.name}</li>
                         ))}</td>
                     </tr>

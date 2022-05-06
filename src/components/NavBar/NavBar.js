@@ -27,20 +27,23 @@ const NavBar = () => {
       <>
         {user ? (
           <>
-            <Navbar id="navbar-bootstrap" expand="lg">
-              <Container>
-                  <Link to="/" style={{textDecoration: 'none'}}>
-                    <li className="links">Home</li>
-                  </Link>
-                  <li onClick = {logout} className="links">Wyloguj</li>
-                  <Link to = "/account" style={{textDecoration: 'none'}}>
-                    <li className="links">{user.username}</li>
-                  </Link>
-                  <Link to="/finish-shopping">
-                    <FontAwesomeIcon className ="icons" icon = {faBasketShopping}/>
-                  </Link>
-              </Container>
-                
+            <Navbar variant="dark" id="navbar-bootstrap" expand="lg">
+              <Navbar.Brand  className="links" href="#">MENU</Navbar.Brand>
+              <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              <Navbar.Collapse id="basic-navbar-nav">
+                <Container>
+                    <Link to="/" style={{textDecoration: 'none'}}>
+                      <li className="links">Home</li>
+                    </Link>
+                    <li onClick = {logout} className="links">Wyloguj</li>
+                    <Link to = "/account" style={{textDecoration: 'none'}}>
+                      <li className="links">{user.username}</li>
+                    </Link>
+                    <Link to="/finish-shopping">
+                      <FontAwesomeIcon className ="icons" icon = {faBasketShopping}/>
+                    </Link>
+                </Container>
+              </Navbar.Collapse>          
             </Navbar>
           </>
         ) : (

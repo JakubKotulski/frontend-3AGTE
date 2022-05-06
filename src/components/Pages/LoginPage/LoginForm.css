@@ -22,3 +22,9 @@
 .login-form .alert-login{
     padding: 10px 100px;
 }
+
+@media only screen and (max-width: 600px) {
+    .login-form .form{
+        width: 75%;
+    }
+}

@@ -7,3 +7,9 @@
     padding-left: 35%;
     text-align: left;
 }
+
+@media only screen and (max-width: 600px) {
+    #history-table .mobile-none{
+        display: none;
+    }
+}
