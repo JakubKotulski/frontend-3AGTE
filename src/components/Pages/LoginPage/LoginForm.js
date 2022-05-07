@@ -56,7 +56,7 @@ const LoginForm = () => {
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" placeholder="Password" onChange={getPassword}/>
                     </Form.Group>
-                    <Button className="button-color" type="submit" onClick={login}>
+                    <Button className="button-color form-button" type="submit" onClick={login}>
                         Submit
                     </Button>
                 </Form>

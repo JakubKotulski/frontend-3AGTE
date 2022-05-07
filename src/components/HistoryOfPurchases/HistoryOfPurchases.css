@@ -13,3 +13,14 @@
         display: none;
     }
 }
+
+@media only screen and (min-width: 768px) and (max-width: 992px){
+    #history-table{
+        font-size: 22px;
+    }
+
+    #history-table .li-padding{
+        padding-left: 0;
+        text-align: left;
+    }
+}

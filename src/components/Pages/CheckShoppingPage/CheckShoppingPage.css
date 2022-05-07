@@ -17,3 +17,11 @@
         padding: 20px 0;
     }
 }
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    #header-check-list h3{
+        font-size: 25px;
+        text-align: center;
+        padding: 20px 0;
+    }
+}

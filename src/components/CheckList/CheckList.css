@@ -12,3 +12,13 @@
         display: none;
     }
 }
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    .check-list-img {
+        height: 300px;
+    }
+
+    #check-table .td .remove-item-button{
+        font-size: 18px;
+    }
+}

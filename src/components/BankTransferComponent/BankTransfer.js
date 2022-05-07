@@ -13,7 +13,7 @@ const BankTransfer = ({ showModal, onHide, addMeans }) => {
     }
 
     return(
-        <Modal show={showModal} onHide={onHide} keyboard={false} backdrop="static">
+        <Modal className="bank-transfer" show={showModal} onHide={onHide} keyboard={false} backdrop="static">
             <Modal.Header closeButton>
                 <Modal.Title>Top-up for your wallet</Modal.Title>
             </Modal.Header>

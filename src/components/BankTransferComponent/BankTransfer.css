@@ -1,0 +1,9 @@
+@media only screen and (min-width: 768px) and (max-width: 992px){
+    .bank-transfer button{
+        font-size: 20px;
+    }
+
+    .bank-transfer input{
+        padding: 10px;
+    }
+}

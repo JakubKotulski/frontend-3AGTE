@@ -61,7 +61,7 @@ const RegisterForm = () => {
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" placeholder="Password" onChange={getPassword}/>
                     </Form.Group>
-                    <Button className="button-color" type="submit" onClick={signin}>
+                    <Button className="button-color form-button" type="submit" onClick={signin}>
                         Submit
                     </Button>
                 </Form>

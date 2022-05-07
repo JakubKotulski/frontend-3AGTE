@@ -28,7 +28,7 @@ const NavBar = () => {
         {user ? (
           <>
             <Navbar variant="dark" id="navbar-bootstrap" expand="lg">
-              <Navbar.Brand  className="links" href="#">MENU</Navbar.Brand>
+              <Navbar.Brand  className="links fullscreen-disable" href="#">MENU</Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Container>
@@ -49,7 +49,7 @@ const NavBar = () => {
         ) : (
           <>
             <Navbar variant="dark" id="navbar-bootstrap" expand="lg">
-              <Navbar.Brand  className="links" href="#">MENU</Navbar.Brand>
+              <Navbar.Brand  className="links fullscreen-disable" href="#">MENU</Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
                   <Navbar.Collapse id="basic-navbar-nav">
                     <Container>

@@ -21,7 +21,7 @@ const CheckList = ({ list, removeFunction, fetch }) => {
                         <td className="td">{item.name}</td>
                         <td className="td mobile-none"> <img className="check-list-img" src = {item.url}></img> </td>
                         <td className="td">{item.price}</td>
-                        <td className="td">  <Button onClick={ () => {removeFunction(index); fetch()}} variant="danger">Remove from the list</Button> </td>
+                        <td className="td">  <Button className="remove-item-button" onClick={ () => {removeFunction(index); fetch()}} variant="danger">Remove from the list</Button> </td>
                     </tr>
                 ))}
             </tbody>
