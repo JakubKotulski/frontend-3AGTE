@@ -17,8 +17,6 @@ const MainPage = () => {
         const products = await data.json();
         setProducts(products);
     }
-
-    
     
     return(
         <Container fluid className="mp-container">

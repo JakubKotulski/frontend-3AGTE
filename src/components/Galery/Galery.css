@@ -24,6 +24,12 @@
     font-weight: 500;
 }
 
+.galery-h3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media only screen and (max-width: 600px) {
     .galery{
         justify-content: center;

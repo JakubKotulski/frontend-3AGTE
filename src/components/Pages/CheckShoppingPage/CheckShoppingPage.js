@@ -110,6 +110,7 @@ const CheckShoppingPage = () => {
     const declineTransaction = () => {
         setList([]);
         localStorage.removeItem("array");
+        window.location.reload(true);
     }
 
     useEffect(() => {
